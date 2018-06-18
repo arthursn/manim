@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from constants import *
 
 from svg_mobject import SVGMobject
@@ -156,8 +158,11 @@ class TexMobject(SingleStringTexMobject):
         split_list = split_string_list_to_isolate_substring(
             tex_strings, *substrings_to_isolate
         )
-        split_list = map(str.strip, split_list)
+        # print(split_list)
+        split_list = map(lambda s: s.encode('utf-8').strip()
+                         if isinstance(s, unicode) else s.strip(), split_list)
         split_list = filter(lambda s: s != '', split_list)
+
         return split_list
 
     def break_up_by_substrings(self):

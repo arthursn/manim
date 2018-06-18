@@ -105,14 +105,14 @@ class IntroduceCycloid(CycloidScene):
         arrow.reverse_points()
         q_mark = TextMobject("?")
 
-        self.play(*map(ShimmerIn, equation.split()))
+        # self.play(*map(ShimmerIn, equation.split()))
         self.wait()
         self.play(
             ApplyMethod(equation.shift, 2.2*UP),
             ShowCreation(arrow)
         )
         q_mark.next_to(sin_sqrt)
-        self.play(ShimmerIn(cycloid_word))
+        # self.play(ShimmerIn(cycloid_word))
         self.wait()
         self.grow_parts()
         self.draw_cycloid()
@@ -202,10 +202,10 @@ class LeviSolution(CycloidScene):
         self.play(Transform(radial_line, self.p_dot))
         self.remove(radial_line)
         self.add(self.p_dot)
-        self.play(ShimmerIn(self.p_label))
+        # self.play(ShimmerIn(self.p_label))
         self.wait()
         self.play(Transform(self.ceiling.copy(), self.c_dot))
-        self.play(ShimmerIn(self.c_label))
+        # self.play(ShimmerIn(self.c_label))
 
     def show_pendulum(self, arc_angle = np.pi, arc_color = GREEN):
         words = TextMobject(": Instantaneous center of rotation")
@@ -228,7 +228,7 @@ class LeviSolution(CycloidScene):
         right_angle_symbol.shift(self.p_point)
 
         self.play(ShowCreation(line))
-        self.play(ShimmerIn(words))
+        # self.play(ShimmerIn(words))
         self.wait()
         pairs = [    
             (line_angle, arc_angle/2),
@@ -291,7 +291,7 @@ class LeviSolution(CycloidScene):
         self.wait()
         self.play(ShowCreation(diameter))
         self.play(GrowFromCenter(brace))
-        self.play(ShimmerIn(diameter_word))
+        # self.play(ShimmerIn(diameter_word))
         self.wait()
         self.play(*[
             Transform(mob, d_mob)
@@ -319,7 +319,7 @@ class LeviSolution(CycloidScene):
 
         self.play(
             ShowCreation(arc),
-            ShimmerIn(theta)
+            # ShimmerIn(theta)
         )
         self.arc = arc 
         self.theta = theta
@@ -411,7 +411,7 @@ class LeviSolution(CycloidScene):
 
         self.play(
             Transform(self.d_sin_squared_theta, temp_expr),
-            ShimmerIn(y_mob),
+            # ShimmerIn(y_mob),
             ShowCreation(y_equals)
         )
         self.remove(self.d_sin_squared_theta)
@@ -430,8 +430,8 @@ class LeviSolution(CycloidScene):
         d_sqrt.shift(d.get_center()+sqrt_nudge)
 
         self.play(
-            ShimmerIn(y_sqrt),
-            ShimmerIn(d_sqrt),
+            # ShimmerIn(y_sqrt),
+            # ShimmerIn(d_sqrt),
             ApplyMethod(squared.shift, 4*UP),
             ApplyMethod(theta.shift, 1.5* squared.get_width()*LEFT)
         )
@@ -452,8 +452,8 @@ class LeviSolution(CycloidScene):
 
         self.play(
             Transform(equals, new_eq),
-            ShimmerIn(sin_over),
-            ShimmerIn(one_over),
+            # ShimmerIn(sin_over),
+            # ShimmerIn(one_over),
             ApplyMethod(
                 d_sqrt.next_to, one_over, DOWN,
                 path_func = path_along_arc(-np.pi)
@@ -472,7 +472,7 @@ class LeviSolution(CycloidScene):
 
         self.play(
             GrowFromCenter(brace),
-            ShimmerIn(constant)
+            # ShimmerIn(constant)
         )
 
 
@@ -490,7 +490,7 @@ class EquationsForCycloid(CycloidScene):
         equations.center()
         equations.to_edge(UP, buff = 1.3)
 
-        self.play(ShimmerIn(equations))
+        # self.play(ShimmerIn(equations))
         self.grow_parts()
         self.draw_cycloid(rate_func = None, run_time = 5)
         self.wait()
@@ -545,7 +545,8 @@ class SlidingObject(CycloidScene, PathSlidingScene):
         self.roll_back()
         self.wait()
         if with_words:
-            self.play(*map(ShimmerIn, [words1, arrow, words2]))
+            # self.play(*map(ShimmerIn, [words1, arrow, words2]))
+            pass
         self.wait()
         self.remove(self.circle)
         start_time = len(self.frames)*self.frame_duration
