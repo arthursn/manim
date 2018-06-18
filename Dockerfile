@@ -3,7 +3,7 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/so
 RUN apt-get update && apt-get install -y \
     git
 
-RUN apt-get -t jessie-backports install -y "ffmpeg"
+RUN apt-get -t jessie-backports install -y "ffmpeg" "sox"
 
 
 RUN cd /tmp \
@@ -19,4 +19,4 @@ RUN mkdir /app
 COPY . /app
 WORKDIR /app
 
-ENTRYPOINT ["python", "extract_scene.py"]
+# ENTRYPOINT ["python", "extract_scene.py"]

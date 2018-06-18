@@ -3,10 +3,7 @@ import numpy as np
 
 # Things anyone wishing to use this repository for their
 # own use will want to change
-MEDIA_DIR = os.path.join(
-    os.path.expanduser('~'),
-    "Documents", "3Blue1Brown"
-)
+MEDIA_DIR = "3Blue1Brown"
 #
 
 
@@ -100,9 +97,9 @@ IMAGE_MOBJECT_DIR = os.path.join(MOBJECT_DIR, "image")
 if not os.path.exists(MEDIA_DIR):
     raise Exception("""
         Redefine MEDIA_DIR in constants.py to point to
-        a valid directory where movies and images will
+        a valid directory ({}) where movies and images will
         be written
-    """)
+    """.format(os.listdir(os.getcwd())))
 for folder in [FILE_DIR, RASTER_IMAGE_DIR, SVG_IMAGE_DIR, ANIMATIONS_DIR, TEX_DIR,
                TEX_IMAGE_DIR, MOBJECT_DIR, IMAGE_MOBJECT_DIR,
                STAGED_SCENES_DIR]:
