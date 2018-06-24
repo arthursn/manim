@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import absolute_import
 
 import random
@@ -25,10 +27,13 @@ from mobject.svg.drawings import PatreonLogo
 
 class OpeningQuote(Scene):
     CONFIG = {
-        "quote": [],
+        "quote": ["A pipa do vovo nao sobe mais, ",
+           "a pipa do vovo nao sobe mais. ",
+           "Apesar de fazer muita forca, ",
+           "o vovo foi deixado pra tras"],
         "quote_arg_separator": " ",
         "highlighted_quote_terms": {},
-        "author": "",
+        "author": "Silvio Santos",
         "fade_in_kwargs": {
             "submobject_mode": "lagged_start",
             "rate_func": None,
